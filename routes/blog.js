@@ -1,6 +1,11 @@
 const express = require("express");
 const router = express.Router();
-let cats = require("../data");
+const fs = require("fs");
+const path = require("path");
+// let cats = require("../data");
+
+let cats = JSON.parse(fs.readFileSync(path.join(__dirname, "../data.json")));
+// console.log(cats);
 
 router.get("/cats", (req, res) => {
   res.json(cats);
@@ -55,9 +60,15 @@ router.get("/cats/:name", (req, res) => {
 });
 
 router.delete("/cats/:id", (req, res) => {
-  //   console.log( +req.params.id);
   cats = cats.filter((cat) => cat.id !== +req.params.id);
-  console.log(cats);
+  //   console.log(cats);
+  fs.writeFile(
+    path.join(__dirname, "../data.json"),
+    JSON.stringify(cats),
+    (err) => {
+      console.log(err);
+    }
+  );
   if (cats) {
     res.json(cats);
     return;
@@ -68,17 +79,34 @@ router.delete("/cats/:id", (req, res) => {
 router.post("/cats", (req, res) => {
   const { name, age, breed, image } = req.body;
   cats = [...cats, { name, age, breed, image, id: Math.random() * 10 }];
-  //   console.log(cats);
-  res.json(cats);
+  console.log(cats);
+  fs.writeFile(
+    path.join(__dirname, "../data.json"),
+    JSON.stringify(cats),
+    (err) => {
+      console.log(err);
+    }
+  );
+  res.status(201).json(cats);
 });
 
 router.put("/cats/:id", (req, res) => {
-  //   console.log("put reques", req.params.id);
-  //   console.log(req.body);
+  console.log("put reques", req.params.id);
   const hello = cats.find((cat) => cat.id === +req.params.id);
-  console.log(hello);
+  //   console.log(hello);
   hello.age = req.body.age;
-  console.log(hello);
+  hello.name = req.body.name;
+  hello.breed = req.body.breed;
+  hello.image = req.body.image;
+  cats = [...cats, hello];
+
+  fs.writeFile(
+    path.join(__dirname, "../data.json"),
+    JSON.stringify(cats),
+    (err) => {
+      console.log(err);
+    }
+  );
 
   res.send("put");
 });
