@@ -95,6 +95,7 @@ const findByName = (req, res) => {
 };
 
 const findByAge = (req, res) => {
+  //   console.log("find by age");
   //   console.log(req.query.age_lte, req.query.age_gte, req.url);
   if (req?.query?.age_lte && req?.query?.age_gte) {
     cats = cats.filter(
@@ -117,8 +118,8 @@ app.route("/cats").get(getAllCats).post(createNewCat);
 // app.put("/cats/:id", updateCatById);
 app.route("/cats/:id").delete(deleteCatById).put(updateCatById);
 
-app.get("/cats/:name", findByName);
-app.get("/cats/search", findByAge);
+app.route("/cats/search").get(findByAge);
+app.route("/cats/:name").get(findByName);
 
 //1) good way
 
