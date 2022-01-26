@@ -5,6 +5,12 @@ const app = express();
 const cors = require("cors");
 app.use(cors());
 
+const dotenv = require("dotenv");
+// path to env file
+dotenv.config({
+  path: "./config.env",
+});
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -15,6 +21,9 @@ const catsRouter = require("./routes/catsRoutes");
 // ROUTES
 app.use("/cats", catsRouter);
 
-app.listen(3000, () => {
+// console.log(process.env);
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
   console.log("app running");
 });
