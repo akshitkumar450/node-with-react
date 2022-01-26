@@ -5,5 +5,12 @@
     "age": 10,
     "breed": "first",
     "image": "https://cdn2.thecatapi.com/images/beu.jpg"
+  },
+  {
+    "name": "bre",
+    "age": "sad",
+    "breed": "2",
+    "image": "zsdf",
+    "id": 9.174766333949677
   }
 ]

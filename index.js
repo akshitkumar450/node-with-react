@@ -23,7 +23,7 @@ const createNewCat = (req, res) => {
   cats = [...cats, { name, age, breed, image, id: Math.random() * 10 }];
   //   console.log(cats);
   fs.writeFile(
-    path.join(__dirname, "../data.json"),
+    path.join(__dirname, "./data.json"),
     JSON.stringify(cats),
     (err) => {
       console.log(err);
@@ -69,7 +69,7 @@ const updateCatById = (req, res) => {
   console.log("final", cats);
 
   //   fs.writeFile(
-  //     path.join(__dirname, "../data.json"),
+  //     path.join(__dirname, "./data.json"),
   //     JSON.stringify(cats),
   //     (err) => {
   //       console.log(err);
