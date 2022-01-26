@@ -121,27 +121,25 @@ const findByAge = (req, res) => {
     res.status(200).json(cats);
   }
 };
+
+const catsRouter = express.Router();
+app.use("/cats", catsRouter);
+
 //2) other way
 
-// app.get("/cats", getAllCats);
-// app.post("/cats", createNewCat);
-app.route("/cats").get(getAllCats).post(createNewCat);
-
-// app.delete("/cats/:id", deleteCatById);
-// app.put("/cats/:id", updateCatById);
-app.route("/cats/:id").delete(deleteCatById).put(updateCatById);
-
-app.route("/cats/search").get(findByAge);
-app.route("/cats/:name").get(findByName);
+catsRouter.route("/").get(getAllCats).post(createNewCat);
+catsRouter.route("/:id").delete(deleteCatById).put(updateCatById);
+catsRouter.route("/search").get(findByAge);
+catsRouter.route("/:name").get(findByName);
 
 //1) good way
 
-// app.get("/cats", getAllCats);
-// app.post("/cats", createNewCat);
-// app.delete("/cats/:id", deleteCatById);
-// app.put("/cats/:id", updateCatById);
-// app.get("/cats/:name", findByName);
-// app.get("/cats/search", findByAge);
+// catsRouter.get("/", getAllCats);
+// catsRouter.post("/", createNewCat);
+// catsRouter.delete("/:id", deleteCatById);
+// catsRouter.put("/:id", updateCatById);
+// catsRouter.get("/:name", findByName);
+// catsRouter.get("/search", findByAge);
 
 app.listen(3000, () => {
   console.log("app running");
