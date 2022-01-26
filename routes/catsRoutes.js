@@ -7,9 +7,18 @@ const {
   deleteCatById,
   findByName,
   findByAge,
+  checkBody,
 } = require("../controllers/catsControllers");
 
-router.route("/").get(getAllCats).post(createNewCat);
+// param middleware
+// will only run (before) when we have name as a params only for (/:name)
+router.param("name", (req, res, next, val) => {
+  console.log("param middle", val);
+  next();
+});
+
+// the checkbody fn will run before createNewCat fn
+router.route("/").get(getAllCats).post(checkBody, createNewCat);
 router.route("/:id").delete(deleteCatById).put(updateCatById);
 router.route("/search").get(findByAge);
 router.route("/:name").get(findByName);

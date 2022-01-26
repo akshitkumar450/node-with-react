@@ -19,5 +19,12 @@
         "breed": "sadsa",
         "image": "asdasd",
         "id": 8.112880241602731
+    },
+    {
+        "name": "siri",
+        "age": 32,
+        "breed": "dahl",
+        "image": "asdasd",
+        "id": 5.594118582435518
     }
 ]

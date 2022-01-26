@@ -99,6 +99,16 @@ const findByAge = (req, res) => {
   }
 };
 
+// for checking whether we have a data in post request
+// it is a middleware which will run before createNewCat
+const checkBody = (req, res, next) => {
+  if (!req.body || !req.body.name) {
+    res.status(400).send("No name or data to be added");
+    return;
+  }
+  next();
+};
+
 module.exports = {
   getAllCats,
   createNewCat,
@@ -106,4 +116,5 @@ module.exports = {
   updateCatById,
   findByAge,
   findByName,
+  checkBody,
 };
