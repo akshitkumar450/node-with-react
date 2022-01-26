@@ -1,11 +1,19 @@
 const fs = require("fs");
 const path = require("path");
+const db = require("../db");
 
 // reading the json file
 let cats = JSON.parse(fs.readFileSync(path.join(__dirname, "../data.json")));
 // console.log(cats);
 const getAllCats = (req, res) => {
-  res.status(200).json(cats);
+  // let allCats = [];
+  db.query("SELECT * FROM Cats ", (err, result, fields) => {
+    if (err) throw err;
+    console.log("all", result);
+    // allCats = result.map((item) => item);
+    // console.log(allCats);
+    res.status(200).json(result);
+  });
 };
 
 const createNewCat = (req, res) => {
