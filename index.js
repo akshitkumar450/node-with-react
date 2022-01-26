@@ -11,6 +11,19 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/public", express.static(path.join(__dirname, "public")));
 
+// own middleware
+// this will run every time we make our request to any route
+// order of middleware matters
+app.use((req, res, next) => {
+  console.log("own middleware");
+  next();
+});
+app.use((req, res, next) => {
+  // this will be available on all requests made
+  req.requestTime = new Date().toISOString();
+  next();
+});
+
 // reading the json file
 let cats = JSON.parse(fs.readFileSync(path.join(__dirname, "./data.json")));
 // console.log(cats);
