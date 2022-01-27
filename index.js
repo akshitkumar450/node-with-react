@@ -17,9 +17,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/", express.static(path.join(__dirname, "public")));
 
 const catsRouter = require("./routes/catsRoutes");
+const userRouter = require("./routes/userRoutes");
 
 // ROUTES
 app.use("/cats", catsRouter);
+app.use("/users", userRouter);
 
 // console.log(process.env);
 
