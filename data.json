@@ -1,30 +1,56 @@
 [
     {
-        "id": 1,
-        "name": "luna",
-        "age": 10,
-        "breed": "first",
-        "image": "https://cdn2.thecatapi.com/images/beu.jpg"
+        "name": "oliver",
+        "breed": "second",
+        "age": 6,
+        "image": "https: //cdn2.thecatapi.com/images/2IpZYS6fW.png"
     },
     {
-        "name": "bre",
-        "age": "sad",
-        "breed": "2",
-        "image": "zsdf",
-        "id": 9.174766333949677
-    },
-    {
-        "name": "bre",
-        "age": 78,
-        "breed": "sadsa",
-        "image": "asdasd",
-        "id": 8.112880241602731
+        "name": "brett",
+        "breed": "third",
+        "age": 16,
+        "image": "https://cdn2.thecatapi.com/images/a9h.jpg"
     },
     {
         "name": "siri",
-        "age": 32,
-        "breed": "dahl",
-        "image": "asdasd",
-        "id": 5.594118582435518
+        "breed": "fourth",
+        "age": 4,
+        "image": "https://cdn2.thecatapi.com/images/OhTkBTPnD.jpg"
+    },
+    {
+        "name": "birman",
+        "breed": "fifth",
+        "age": 9,
+        "image": "https://cdn2.thecatapi.com/images/a3n.jpg"
+    },
+    {
+        "name": "jacky",
+        "breed": "fifth",
+        "age": 6,
+        "image": "https://cdn2.thecatapi.com/images/k1R0x8yEc.jpg"
+    },
+    {
+        "name": "skyu",
+        "breed": "fourth",
+        "age": 8,
+        "image": "https://cdn2.thecatapi.com/images/6d0.jpg"
+    },
+    {
+        "name": "skyu",
+        "breed": "fourth",
+        "age": 8,
+        "image": "https://cdn2.thecatapi.com/images/6d0.jpg"
+    },
+    {
+        "name": "uri",
+        "breed": "third",
+        "age": 6,
+        "image": "https://cdn2.thecatapi.com/images/XvrmhmEoP.jpg"
+    },
+    {
+        "name": "lacy",
+        "breed": "second",
+        "age": 6,
+        "image": "https://cdn2.thecatapi.com/images/_JgU99DS-.jpg"
     }
 ]
