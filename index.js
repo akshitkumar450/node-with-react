@@ -29,25 +29,6 @@ mongoose.connect(DB).then((db) => {
   console.log("db connection success");
 });
 
-const Cats = require("./models/mongoDB");
-// creating a new doc in db
-const newCat = new Cats({
-  name: "tori",
-  breed: "third",
-  image: "https://cdn2.thecatapi.com/images/a9h.jpg",
-  age: 11,
-});
-
-// saving to DB
-newCat
-  .save()
-  .then((doc) => {
-    console.log(doc);
-  })
-  .catch((err) => {
-    console.log(err.message);
-  });
-
 // ROUTES
 app.use("/cats", catsRouter);
 app.use("/users", userRouter);

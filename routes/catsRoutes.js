@@ -8,7 +8,7 @@ const {
   findByName,
   findByAge,
   checkBody,
-} = require("../controllers/catsControllers");
+} = require("../controllers/catsControllersM");
 
 // param middleware
 // will only run (before) when we have name as a params only for (/:name)
